@@ -13,8 +13,7 @@ public:
         shoot = LoadSound("sounds/shoot.ogg");
 
         music = LoadMusicStream("sounds/music2.mp3");
-        // SetAudioStreamBufferSizeDefault();
-        // SetMusicPitch(music, 0.65f);
+
         PlayMusicStream(music);
         SetMusicVolume(music, 1.0f);
     }
@@ -31,12 +30,11 @@ public:
         PlaySound(boost);
     }
 
-    void updateMusic(){
+    void updateMusic() {
         UpdateMusicStream(music);
     }
 
-    void tearDown() {
-
+    ~SoundBoard() {
         UnloadSound(explosion);
         UnloadSound(boost);
         UnloadSound(shoot);

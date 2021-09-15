@@ -14,10 +14,10 @@ add_executable(${PROJECT_NAME}
 #        src/Utils.h
 #        src/Constants.h
 #        src/Window.h
-#        src/Asteroid.h
+#        src/Rock.h
 #        src/Rocket.h
 #        src/SoundBoard.h
-        )
+        src/Event.cpp src/Event.h src/Utils.cpp src/Scene.cpp src/Scene.h)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE /usr/local/lib/libraylib.dylib)
 #target_link_libraries(${PROJECT_NAME} PRIVATE /usr/local/lib/libraylib.a)
