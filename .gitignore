@@ -1,0 +1,11 @@
+build
+cmake-build-debug
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+asteroids.cbp
+.DS_Store
+
+Makefile
+./asteroids
+./asteroids.cbp
