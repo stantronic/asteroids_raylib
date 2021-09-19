@@ -12,7 +12,7 @@ Rectangle collisionRecFromCenter(Vector2 position, float size) {
             size};
 }
 
-bool areColliding(Movable *a, Movable *b) {
+bool areColliding(Entity *a, Entity *b) {
     return (a->isAlive()
             && b->isAlive()
             && CheckCollisionRecs(a->getCollisionRec(), b->getCollisionRec())

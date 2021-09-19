@@ -2,10 +2,10 @@
 #define UTILS
 
 #include "raylib.h"
-#include "Movable.h"
+#include "entities/Entity.h"
 
 Rectangle collisionRecFromCenter(Vector2 position, float size);
 
-bool areColliding(Movable *a, Movable *b);
+bool areColliding(Entity *a, Entity *b);
 
 #endif

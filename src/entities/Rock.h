@@ -1,6 +1,8 @@
-#include "SoundBoard.h"
-#include "Event.h"
-#include "Movable.h"
+#include "../SoundBoard.h"
+#include "../events/Event.h"
+#include "Entity.h"
+#include "../events/EventBus.h"
+#include "Explosion.h"
 
 #ifndef ROCK_H
 #define ROCK_H
@@ -10,7 +12,7 @@
 #pragma clang diagnostic ignored "-Wunknown-pragmas"
 #pragma ide diagnostic ignored "OCSimplifyInspection"
 
-class Rock : public Movable {
+class Rock : public Entity {
 
 public:
     Rock(
@@ -18,16 +20,7 @@ public:
             Vector2 vel,
             EventBus *events,
             float spin,
-            int size) : Movable(),
-                        velocity(vel),
-                        events(events),
-                        spin(spin),
-                        rotation(spin),
-                        size(size) {
-        position = pos;
-        alive = true;
-        collisionRecSize = (float) size * 1.4f;
-    }
+            int size);
 
     Rock(Rock &other) : Rock(other.position, other.velocity, other.events, other.spin, other.size) {
         alive = other.alive;
@@ -60,15 +53,22 @@ public:
         }
     }
 
-    static Rock *make(Vector2 position, Vector2 velocity, EventBus *events) {
+    static Rock *make(
+            Vector2 position,
+            Vector2 velocity,
+            int size,
+            float spin,
+            EventBus *events) {
         return new Rock{
                 position,
                 velocity,
                 events,
-                3,
-                60,
+                spin,
+                size,
         };
     }
+
+    int getSize() const { return size; }
 
 private:
     Vector2 velocity{};

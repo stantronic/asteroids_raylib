@@ -1,12 +1,14 @@
-#ifndef ASTEROIDS_MOVABLE_H
-#define ASTEROIDS_MOVABLE_H
+#ifndef ASTEROIDS_ENTITY_H
+#define ASTEROIDS_ENTITY_H
 
 #include "raylib.h"
 #include "raymath.h"
-#include "Window.h"
+#include "../Window.h"
 
-class Movable {
+class Entity {
 public:
+
+    virtual ~Entity() = default;
 
     virtual void update(Window *window) = 0;
 
@@ -14,7 +16,7 @@ public:
 
     virtual bool isAlive() const { return alive; }
 
-    Vector2 getPosition() { return position; }
+    Vector2 getPosition() const { return position; }
 
     void positionAt(Vector2 new_position);
 
@@ -29,4 +31,4 @@ protected:
 };
 
 
-#endif //ASTEROIDS_MOVABLE_H
+#endif //ASTEROIDS_ENTITY_H
